@@ -15,7 +15,7 @@ async def on_ready():
 @bot.command(pass_context=True)
 async def python(ctx):
   """Tells you which python version you need"""
-  await bot.say('you need python 3.6.5')
+  await bot.say('you need python 3.6.5 version')
   
 def user_is_me(ctx):
 	return ctx.message.author.id == "277983178914922497"
@@ -39,11 +39,5 @@ async def autobaselink(ctx):
 		await bot.delete_message(ctx.message)
 		await asyncio.sleep(5)
 		await bot.delete_message(text)
-		
-@bot.command(pass_context=True)
-async def pythondownload(ctx):
-	embed = discord.Embed(title="Here's the python download, description="[Click here](https://www.python.org/downloads/release/python-365/)")
-	embed.add_field(name="python download", value=" ")
-	await bot.say(embed=embed)
   
 bot.run(os.environ['BOT_TOKEN'])
