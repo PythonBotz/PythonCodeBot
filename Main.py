@@ -14,8 +14,8 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
+    server = member.server
     channel = bot.get_channel("517207233767931906")
-    server = server.member
     embed = discord.Embed(title="👋 {} just joined {}".format(member.name, server.name), description="Welcome! to {} {}! Enjoy your stay here!".format(server.name, member.name), color=0x00ff00)
     embed.set_thumbnail(url=member.avatar_url)
     await bot.send_message(channel, embed=embed)
