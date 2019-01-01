@@ -31,7 +31,6 @@ async def _eval(ctx, *, command):
 	
 @bot.command(pass_context=True)
 async def autobaselink(ctx):
-	"""use your bot client id after p!autobaselink"""
 	try:
 		x = int(ctx.message.content[15:])
 		await bot.say("**Your bot's invite link is:** <https://discordapp.com/oauth2/authorize?&client_id=" + str(x) + "&scope=bot&permissions=8>")
