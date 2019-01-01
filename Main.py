@@ -28,5 +28,17 @@ async def _eval(ctx, *, command):
         await bot.say(await res)
     else:
     	await bot.say(res)
+	
+@bot.command(pass_context=True)
+async def autobaselink(ctx):
+	"""use your bot client id after p!autobaselink"""
+	try:
+		x = int(ctx.message.content[15:])
+		await bot.say("**Your bot's invite link is:** <https://discordapp.com/oauth2/authorize?&client_id=" + str(x) + "&scope=bot&permissions=8>")
+	except:
+		text = await bot.say("**Invalid client id, recheck the id and make sure that you didn't accidentally use your bot token or client secret <@" + str(ctx.message.author.id) + ">**")
+		await bot.delete_message(ctx.message)
+		await asyncio.sleep(5)
+		await bot.delete_message(text)
   
 bot.run(os.environ['BOT_TOKEN'])
