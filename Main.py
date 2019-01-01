@@ -14,7 +14,7 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-	await bot.get_channel("517207233767931906")
+	bot.get_channel("517207233767931906")
 	await bot.send_message(message.channel, "Welcome + member.name + to {} server :wink:".format(server.name))
   
 @bot.command(pass_context=True)
