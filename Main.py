@@ -2,15 +2,15 @@ import discord
 from discord.ext import commands
 import asyncio
 
-@bot.event
+@client.event
 async def on_ready():
   print('Logged in as')
-  print(bot.user.name)
-  print(bot.user.id)
+  print(client.user.name)
+  print(client.user.id)
   
-@bot.command(pass_context=True)
+@client.command(pass_context=True)
 async def python(ctx):
   """Tells you which python version you need"""
-  await bot.say('you need python 3.6.5')
+  await client.say('you need python 3.6.5')
   
-bot.run(os.environ['BOT_TOKEN'])
+client.run(os.environ['BOT_TOKEN'])
