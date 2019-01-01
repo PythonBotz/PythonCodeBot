@@ -1,5 +1,6 @@
 import discord
-from discord import commands
+from discord.ext import commands
+import asyncio
 
 @bot.event
 async def on_ready():
