@@ -42,6 +42,8 @@ async def autobaselink(ctx):
 		
 @bot.command(pass_context=True)
 async def pythondownload(ctx):
-	await bot.send_message(ctx.message.channel, embed=discord.Embed(title="Here's the python download, description=f"[Click here](https://www.python.org/downloads/release/python-365/)", color=0xFFFF)
+	embed = discord.Embed(title="Here's the python download, description="[Click here](https://www.python.org/downloads/release/python-365/)")
+	embed.add_field(name="python download", value=" ")
+	await bot.say(embed=embed)
   
 bot.run(os.environ['BOT_TOKEN'])
