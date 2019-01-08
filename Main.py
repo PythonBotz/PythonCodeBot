@@ -24,7 +24,7 @@ async def on_member_join(member):
 async def on_member_remove(member):
     channel = bot.get_channel("517207233767931906")
     embed = discord.Embed(title="👋 {} just left the server.".format(member.name), description="Goodbye! {} hope to see you again".format(member.name), color=0x00ff00)
-    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/{0.id}/{0.avatar}.png?size=1024"))
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/{0.id}/{0.avatar}.png?size=1024")
     await bot.send_message(channel, embed=embed)
   
 @bot.command(pass_context=True)
