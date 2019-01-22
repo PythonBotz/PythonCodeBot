@@ -54,5 +54,39 @@ async def autobaselink(ctx):
 		await bot.delete_message(ctx.message)
 		await asyncio.sleep(5)
 		await bot.delete_message(text)
+		
+@bot.command(name="addrole", pass_context=True, hidden=True)
+@commands.has_permissions(administrator=True, manage_roles=True)
+async def _addrole(ctx, user: discord.Member = None, *, name = None):
+    author = ctx.message.author
+    role = discord.utils.get(ctx.message.server.roles, name=name)
+    await bot.add_roles(user, role)
+    text = await bot.say(f'{author.mention} I have added the {role.name} role to a user {user.name}'.format(role.name))
+    await bot.delete_message(ctx.message)
+    await asyncio.sleep(1)
+    await bot.delete_message(text)
+    
+@_addrole.error
+async def addrole_error(error, ctx):
+	if isinstance(error, discord.ext.commands.errors.CheckFailure):
+		text = "Sorry {}, You don't have a manage roles permission to use this command.".format(ctx.message.author.mention)
+		await bot.send_message(ctx.message.channel, text)
+
+@bot.command(name="removerole", pass_context=True, hidden=True)
+@commands.has_permissions(administrator=True, manage_roles=True)
+async def _removerole(ctx, user: discord.Member = None, *, name = None):
+	author = ctx.message.author
+	role = discord.utils.get(ctx.message.server.roles, name=name)
+	await bot.remove_roles(user, role)
+	text = await bot.say(f'{author.mention} I have removed the {role.name} role from a user {user.name}'.format(role.name))
+	await bot.delete_message(ctx.message)
+	await asyncio.sleep(1)
+	await bot.delete_message(text)
+	
+@_removerole.error
+async def removerole_error(error, ctx):
+	if isinstance(error, discord.ext.commands.errors.CheckFailure):
+		text = "Sorry {}, You don't have a manage roles permission to use this command.".format(ctx.message.author.mention)
+		await bot.send_message(ctx.message.channel, text)
   
 bot.run(os.environ['BOT_TOKEN'])
