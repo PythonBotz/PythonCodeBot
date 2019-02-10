@@ -8,31 +8,30 @@ bot = commands.Bot(command_prefix=("p!"))
 
 @bot.event
 async def on_ready():
-  print('Logged in as')
-  print(bot.user.name)
-  print(bot.user.id)
+	print('Logged in as')
+	print(bot.user.name)
+	print(bot.user.id)
 
 @bot.event
 async def on_member_join(member):
-    server = member.server
-    channel = bot.get_channel("517207233767931906")
-    embed = discord.Embed(title="👋 {} just joined {}".format(member.name, server.name), description="Welcome! to {} {}! Enjoy your stay here!".format(server.name, member.name), color=0x00ff00)
-    embed.add_field(name="Current Member Count", value=message.server.member_count))
-    embed.set_thumbnail(url=member.avatar_url)
-    await bot.send_message(channel, embed=embed)
+	server = member.server
+	channel = bot.get_channel("517207233767931906")
+	embed = discord.Embed(title="👋 {} just joined {}".format(member.name, server.name), description="Welcome! to {} {}! Enjoy your stay here!".format(server.name, member.name), color=0x00ff00)
+	embed.add_field(name="Current Member Count", value=message.server.member_count))
+	embed.set_thumbnail(url=member.avatar_url)
+	await bot.send_message(channel, embed=embed)
 
 @bot.event
 async def on_member_remove(member):
-    channel = bot.get_channel("517207233767931906")
-    embed = discord.Embed(title="👋 {} just left the server.".format(member.name), description="Goodbye! {} hope to see you again".format(member.name), color=0x00ff00)
-    embed.add_field(name="Current Member Count", value=message.server.member_count))
-    embed.set_thumbnail(url=member.avatar_url)
-    await bot.send_message(channel, embed=embed)
+	channel = bot.get_channel("517207233767931906")
+	embed = discord.Embed(title="👋 {} just left the server.".format(member.name), description="Goodbye! {} hope to see you again".format(member.name), color=0x00ff00)
+	embed.add_field(name="Current Member Count", value=message.server.member_count))
+	embed.set_thumbnail(url=member.avatar_url)
+	await bot.send_message(channel, embed=embed)
   
 @bot.command(pass_context=True)
 async def python(ctx):
-  """Tells you which python version you need"""
-  await bot.say('you need python 3.6.5 version')
+	await bot.say('you need python 3.6.5 version')
   
 def user_is_me(ctx):
 	return ctx.message.author.id == "277983178914922497"
@@ -40,11 +39,11 @@ def user_is_me(ctx):
 @bot.command(name='eval', pass_context=True, hidden=True)
 @commands.check(user_is_me)
 async def _eval(ctx, *, command):
-    res = eval(command)
-    if inspect.isawaitable(res):
-        await bot.say(await res)
-    else:
-    	await bot.say(res)
+	res = eval(command)
+	if inspect.isawaitable(res):
+		await bot.say(await res)
+	else:
+		await bot.say(res)
 	
 @bot.command(pass_context=True)
 async def autobaselink(ctx):
@@ -60,13 +59,13 @@ async def autobaselink(ctx):
 @bot.command(name="addrole", pass_context=True, hidden=True)
 @commands.has_permissions(administrator=True, manage_roles=True)
 async def _addrole(ctx, user: discord.Member = None, *, name = None):
-    author = ctx.message.author
-    role = discord.utils.get(ctx.message.server.roles, name=name)
-    await bot.add_roles(user, role)
-    text = await bot.say(f'{author.mention} I have added the {role.name} role to a user {user.name}'.format(role.name))
-    await bot.delete_message(ctx.message)
-    await asyncio.sleep(1)
-    await bot.delete_message(text)
+	author = ctx.message.author
+	role = discord.utils.get(ctx.message.server.roles, name=name)
+	await bot.add_roles(user, role)
+	text = await bot.say(f'{author.mention} I have added the {role.name} role to a user {user.name}'.format(role.name))
+	await bot.delete_message(ctx.message)
+	await asyncio.sleep(1)
+	await bot.delete_message(text)
     
 @_addrole.error
 async def addrole_error(error, ctx):
