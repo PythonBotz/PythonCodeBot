@@ -11,6 +11,7 @@ async def on_ready():
 	print('Logged in as')
 	print(bot.user.name)
 	print(bot.user.id)
+	await bot.change_presence(game=discord.Game(name="p!help"))
 
 @bot.event
 async def on_member_join(member):
@@ -32,6 +33,8 @@ async def on_member_remove(member):
 @bot.command(pass_context=True)
 async def python(ctx):
 	await bot.say('you need python 3.6.5 version')
+	
+
   
 def user_is_me(ctx):
 	return ctx.message.author.id == "277983178914922497"
