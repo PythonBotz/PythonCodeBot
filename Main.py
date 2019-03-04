@@ -12,6 +12,19 @@ async def on_ready():
 	print(bot.user.name)
 	print(bot.user.id)
 	await bot.change_presence(game=discord.Game(name="p!help"))
+	
+my_server = bot.get_server('503321145265750027')
+
+@bot.event
+async def on_ready():
+    for server in client.servers:
+        if server != my_server:
+            await bot.leave_server(server)
+
+@bot.event
+async def on_server_join(server):
+    if server != my_server:
+        await bot.leave_server(server)
 
 @bot.event
 async def on_member_join(member):
