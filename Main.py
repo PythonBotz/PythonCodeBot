@@ -5,26 +5,20 @@ import inspect
 import os
 
 bot = commands.Bot(command_prefix=("p!"))
-
-@bot.event
-async def on_ready():
-	print('Logged in as')
-	print(bot.user.name)
-	print(bot.user.id)
-	await bot.change_presence(game=discord.Game(name="p!help"))
 	
 my_server = bot.get_server('503321145265750027')
 
 @bot.event
 async def on_ready():
-    for server in client.servers:
-        if server != my_server:
-            await bot.leave_server(server)
+	await bot.change_presence(game=discord.Game(name="p!help"))
+	for server in bot.servers:
+		if server != my_server:
+			await bot.leave_server(server)
 
 @bot.event
 async def on_server_join(server):
-    if server != my_server:
-        await bot.leave_server(server)
+	if server != my_server:
+		await bot.leave_server(server)
 
 @bot.event
 async def on_member_join(member):
@@ -47,8 +41,6 @@ async def on_member_remove(member):
 async def python(ctx):
 	await bot.say('you need python 3.6.5 version')
 	
-
-  
 def user_is_me(ctx):
 	return ctx.message.author.id == "277983178914922497"
 
