@@ -14,11 +14,6 @@ async def on_ready():
 	print(bot.user.id)
 
 @bot.event
-async def on_server_join(message):
-	channel = message.channel
-	await bot.send_message(channel, "Hello my name is Python for more commands use p!help and more commands will be coming soon. :)")
-
-@bot.event
 async def on_member_join(member):
 	server = member.server
 	channel = bot.get_channel("517207233767931906")
@@ -34,6 +29,11 @@ async def on_member_remove(member):
 	embed.set_thumbnail(url=member.avatar_url)
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
 	await bot.send_message(channel, embed=embed)
+	
+@bot.event
+async def on_server_join(message):
+	channel = message.channel
+	await bot.send_message(channel, "Hello my name is Python for more commands use p!help and more commands will be coming soon. :)")
   
 @bot.command(pass_context=True)
 async def python(ctx):
