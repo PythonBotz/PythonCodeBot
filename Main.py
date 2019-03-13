@@ -14,8 +14,8 @@ async def on_ready():
 	print(bot.user.id)
 
 @bot.event
-async def on_server_join(server):
-	channel = server.message.channel
+async def on_server_join(message):
+	channel = message.channel
 	await bot.send_message(channel, "Hello my name is Python for more commands use p!help and more commands will be coming soon. :)")
 
 @bot.event
