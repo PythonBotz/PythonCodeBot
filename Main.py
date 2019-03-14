@@ -30,7 +30,7 @@ async def on_member_remove(member):
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
 	await bot.send_message(channel, embed=embed)
 	
-@bot.command(pass_context=True)
+@bot.command(pass_context=True, hidden=True)
 async def channel(ctx):
 	await bot.say("<#{}>".format(ctx.message.channel.id))
   
