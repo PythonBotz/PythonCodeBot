@@ -30,22 +30,9 @@ async def on_member_remove(member):
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
 	await bot.send_message(channel, embed=embed)
 	
-@bot.event
-async def on_message(message):
-	author = message.author
-	content = message.content
-	print("{}: {}".format(author, content))
-	
-@bot.event
-async def on_message_edit(message):
-	author = message.author
-	content = message.content
-	channel = bot.get_channel("524843136011468801")
-	embed = discord.Embed(description=" ")
-	embed.add_field(name="Author", value="{}".format(author))
-	embed.add_field(name="Content", value="{}".format(content))
-	embed.add_field(name="Channel name", value="<#{}>".format(message.channel.id))
-	await bot.send_message(channel, embed=embed)
+@bot.command(pass_context=True)
+async def channel(ctx):
+	await bot.say("<#{}>".format(ctx.message.channel.id))
   
 @bot.command(pass_context=True)
 async def python(ctx):
