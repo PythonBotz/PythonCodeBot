@@ -31,11 +31,6 @@ async def on_member_remove(member):
 	await bot.send_message(channel, embed=embed)
 	
 @bot.event
-async def on_server_join(message):
-	channel = message.channel
-	await bot.send_message(channel, "Hello my name is Python for more commands use p!help and more commands will be coming soon. :)")
-	
-@bot.event
 async def on_message_edit(message):
 	author = message.author
 	channel = message.channel
