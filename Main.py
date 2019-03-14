@@ -33,14 +33,13 @@ async def on_member_remove(member):
 @bot.event
 async def on_message_edit(message):
 	author = message.author
-	channel = message.channel
 	content = message.content
-	channels = bot.get_channel("524843136011468801")
+	channel = bot.get_channel("524843136011468801")
 	embed = discord.Embed(description=" ")
 	embed.add_field(name="Author", value="{}".format(author))
 	embed.add_field(name="Content", value="{}".format(content))
-	embed.add_field(name="Channel name", value="{}".format(channel))
-	await bot.send_message(channels, embed=embed)
+	embed.add_field(name="Channel name", value="<#{}>".format(message.channel.id))
+	await bot.send_message(channel, embed=embed)
   
 @bot.command(pass_context=True)
 async def python(ctx):
