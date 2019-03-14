@@ -31,6 +31,12 @@ async def on_member_remove(member):
 	await bot.send_message(channel, embed=embed)
 	
 @bot.event
+async def on_message(message):
+	author = message.author
+	content = message.content
+	print("{}: {}".format(author, content))
+	
+@bot.event
 async def on_message_edit(message):
 	author = message.author
 	content = message.content
