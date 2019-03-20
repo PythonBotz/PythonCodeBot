@@ -15,7 +15,7 @@ class Fun:
   async def python(self):
     await self.client.say("You need python 3.6.5 version")
   
-  "rank" = {
+  "rank": = {
     "24":{"Major General"}
   
   }
