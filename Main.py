@@ -25,7 +25,7 @@ async def unload(extension):
 	except Exception as error:
 		print("{} cannot be unloaded. [{}]".format(extension, error))
 
-if __name__ == "__Main__":
+if __name__ == "__main__":
 	for extension in extensions:
 		try:
 			client.load_extension(extension)
