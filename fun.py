@@ -15,7 +15,7 @@ class Fun:
   async def python(self):
     await self.client.say("You need python 3.6.5 version")
   
-  @commands.command(name="c open")
+  @commands.command(aliases=["c open"])
   async def open_container(self):
     await self.client.say("Pong!")
   
