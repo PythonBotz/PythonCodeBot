@@ -15,10 +15,6 @@ class Fun:
   async def python(self):
     await self.client.say("You need python 3.6.5 version")
   
-  @commands.command(aliases=["c open"])
-  async def open_container(self):
-    await self.client.say("Pong!")
-  
   rank = {
     "24":{"Major General"}}
     
@@ -35,7 +31,7 @@ class Fun:
           gold = response["caughtGolds"]
           experience = response["score"]
           premium = response["hasPremium"]
-          rank = response["rank"]
+          rank = ["rank"]
           gearscore = response["gearScore"]
           embed = discord.Embed(title="Tanki Online Ratings".format(user), url="http://ratings.tankionline.com/en/user/{}/".format(user), \
                                 description="**Profile:**", color=0x42d9f4)
