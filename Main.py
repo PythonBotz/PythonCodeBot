@@ -10,10 +10,7 @@ bot = commands.Bot(command_prefix=("p!"))
 
 @bot.event
 async def on_ready():
-	await bot.change_presence(game=discord.Game(name="p!help"))
-	print("Logged in as")
-	print(bot.user.name)
-	print(bot.user.id)
+	print("Bot online")
 	
 @bot.command()
 async def load(extension):
