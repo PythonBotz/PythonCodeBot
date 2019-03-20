@@ -8,22 +8,22 @@ extensions = ["fun"]
 
 bot = commands.Bot(command_prefix=("p!"))
 
-@bot.event
+@client.event
 async def on_ready():
 	print("Bot online")
 	
-@bot.command()
+@client.command()
 async def load(extension):
 	try:
-		bot.load_extension(extension)
+		client.load_extension(extension)
 		print("loaded {}".format(extension))
 	except Exception as error:
 		print("{} cannot be loaded. [{}]".format(extension, error))
 		
-@bot.command()
+@client.command()
 async def unload(extension):
 	try:
-		bot.unload_extension(extension)
+		client.unload_extension(extension)
 		print("unloaded {}".format(extension))
 	except Exception as error:
 		print("{} cannot be unloaded. [{}]".format(extension, error))
@@ -31,8 +31,8 @@ async def unload(extension):
 if __name__ == "__Main__":
 	for extension in extensions:
 		try:
-			bot.load_extension(extension)
+			client.load_extension(extension)
 		except Exception as error:
 			print("{} cannot be loaded. [{}]".format(extension, error))
 			
-	bot.run(os.environ['BOT_TOKEN'])
+	client.run(os.environ['BOT_TOKEN'])
