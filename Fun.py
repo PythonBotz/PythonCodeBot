@@ -10,4 +10,4 @@ class Fun:
     await self.client.say("Pong!")
     
 def setup(client):
-  client.add_cog(Fun(cliebt))
+  client.add_cog(Fun(client))
