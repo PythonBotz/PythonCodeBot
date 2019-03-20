@@ -16,7 +16,7 @@ class Fun:
     await self.client.say("You need python 3.6.5 version")
   
   @commands.command()
-  async def test():
+  async def test(self):
     embed = discord.Embed(description=" ")
     embed.add_field(name="test1", value="test2")
     await self.client.say(embed=embed)
