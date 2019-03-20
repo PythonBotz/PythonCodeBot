@@ -15,6 +15,9 @@ class Fun:
   async def python(self):
     await self.client.say("You need python 3.6.5 version")
     
+rank = {
+  "24":{"Major General"}
+    
   @commands.command(pass_context=True)
   async def ratings(self, ctx, user: str):
     url = "http://ratings.tankionline.com/get_stat/profile/?user={}&lang=en".format(user)
