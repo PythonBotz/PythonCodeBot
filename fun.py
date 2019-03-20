@@ -16,7 +16,7 @@ class Fun:
     await self.client.say("You need python 3.6.5 version")
   
   rank = {
-    "24":{"Major General"}
+    "24":{"Major General"}}
     
   @commands.command(pass_context=True)
   async def ratings(self, ctx, user: str):
