@@ -6,7 +6,7 @@ import os
 
 extensions = ["fun"]
 
-client = commands.Bot(command_prefix=("p!"))
+client = commands.Bot(command_prefix = "p!")
 
 @client.event
 async def on_ready():
