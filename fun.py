@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+import aiohttp
+import json
 
 class Fun:
   def __init__(self, client):
