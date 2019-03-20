@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 import os
 
-extensions = ["fun", "moderation"]
+extensions = ["fun"]
 
 client = commands.Bot(command_prefix = "p!")
 
