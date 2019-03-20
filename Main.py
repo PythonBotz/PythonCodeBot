@@ -1,7 +1,5 @@
 import discord
 from discord.ext import commands
-import asyncio
-import os
 
 extensions = ["fun"]
 
@@ -34,4 +32,4 @@ if __name__ == "__Main__":
 		except Exception as error:
 			print("{} cannot be loaded. [{}]".format(extension, error))
 			
-	client.run(os.environ['BOT_TOKEN'])
+	client.run(['BOT_TOKEN'])
