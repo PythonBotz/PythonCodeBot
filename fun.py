@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class Fun:
-  def __init__(self, client):
+  def __init__(self, bot):
     self.client = bot
     
   @commands.command()
