@@ -18,7 +18,7 @@ class Fun:
   rank = {
     "24":{"Major General"}}
     
-  @commands.command(pass_context=True)
+  @commands.command(pass_context=True, hidden=True)
   async def ratings(self, ctx, user: str):
     url = "http://ratings.tankionline.com/get_stat/profile/?user={}&lang=en".format(user)
     async with aiohttp.get(url) as r:
