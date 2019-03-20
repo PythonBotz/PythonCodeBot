@@ -14,6 +14,10 @@ class Fun:
   @commands.command()
   async def python(self):
     await self.client.say("You need python 3.6.5 version")
+    
+  @commands.command(name="c open")
+  async def open_container(self):
+    await self.client.say("Pong!")
   
   rank = {
     "24":{"Major General"}}
