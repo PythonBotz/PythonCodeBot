@@ -16,7 +16,7 @@ async def on_ready():
 	print(bot.user.id)
 	
 @bot.command()
-async def load(extensions):
+async def load(extension):
 	try:
 		bot.load_extension(extension)
 		print("loaded {}".format(extension))
@@ -24,7 +24,7 @@ async def load(extensions):
 		print("{} cannot be loaded. [{}]".format(extension, error))
 		
 @bot.command()
-async def unload(extensions):
+async def unload(extension):
 	try:
 		bot.unload_extension(extension)
 		print("unloaded {}".format(extension))
