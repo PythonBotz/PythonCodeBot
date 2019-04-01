@@ -14,7 +14,7 @@ async def on_ready():
 	print(client.user.name)
 	print(client.user.id)
 	
-@client.command()
+@client.command(hidden=True)
 async def load(extension):
 	try:
 		client.load_extension(extension)
@@ -22,7 +22,7 @@ async def load(extension):
 	except Exception as error:
 		print("{} cannot be loaded. [{}]".format(extension, error))
 		
-@client.command()
+@client.command(hidden=True)
 async def unload(extension):
 	try:
 		client.unload_extension(extension)
