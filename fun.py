@@ -15,9 +15,5 @@ class Main:
   async def python(self):
     await self.client.say("You need python 3.6.5 version")
     
-  @commands.command(hidden=True)
-  async def self(self):
-    await self.client.say("You have took a selfie")
-    
 def setup(client):
   client.add_cog(Main(client))
