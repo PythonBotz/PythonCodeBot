@@ -9,7 +9,7 @@ client = commands.Bot(command_prefix = "p!")
 
 @client.event
 async def on_ready():
-	await client.change_presence(game=discord.Game(name="testing the bot"))
+	await client.change_presence(game=discord.Game(name="p!help"))
 	print("Logged in as")
 	print(client.user.name)
 	print(client.user.id)
