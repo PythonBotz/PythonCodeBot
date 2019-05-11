@@ -19,5 +19,10 @@ class Main:
   async def baselink(self):
     await self.client.say("<https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENTID_HERE&scope=bot&permissions=YOUR_VALUE_HERE>")
     
+  @commands.command()
+  async def download(self):
+    """download link for python 3.6.5"""
+    await self.client.say("<https://www.python.org/downloads/release/python-365/>")
+    
 def setup(client):
   client.add_cog(Main(client))
