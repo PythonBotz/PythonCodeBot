@@ -21,7 +21,7 @@ class Main:
     
   @commands.command()
   async def download(self):
-    """download link for python 3.6.5"""
+    """| download link for python 3.6.5"""
     await self.client.say("<https://www.python.org/downloads/release/python-365/>")
     
 def setup(client):
