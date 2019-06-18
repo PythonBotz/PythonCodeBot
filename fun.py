@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import aiohttp
 import json
+import inspect
 
 class Main:
   def __init__(self, client):
@@ -23,8 +24,12 @@ class Main:
   async def download(self):
     """| download link for python 3.6.5"""
     await self.client.say("<https://www.python.org/downloads/release/python-365/>")
+    
+  def user_is_me(ctx):
+    return ctx.message.author.id == "277983178914922497"
   
-  @commands.command(hidden=True, pass_context=True)
+  @commands.command(name="eval", hidden=True, pass_context=True)
+  @commands.check(user_is_me)
   async def _eval(self, ctx, *, command):
     res = eval(command)
     if inspect.isawaitable(res):
