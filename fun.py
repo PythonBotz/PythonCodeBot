@@ -24,9 +24,6 @@ class Main:
     """| download link for python 3.6.5"""
     await self.client.say("<https://www.python.org/downloads/release/python-365/>")
   
-  def user_is_me(ctx):
-	return ctx.message.author.id == "277983178914922497"
-  
   @commands.command(hidden=True, pass_context=True)
   @commands.check(user_is_me)
   async def _eval(self, ctx, *, command):
@@ -35,7 +32,7 @@ class Main:
       await self.client.say(await res)
     else:
       await self.client.delete_message(ctx.message)
-    	await self.client.say(res)
+      await self.client.say(res)
   
 def setup(client):
   client.add_cog(Main(client))
