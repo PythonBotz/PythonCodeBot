@@ -25,7 +25,6 @@ class Main:
     await self.client.say("<https://www.python.org/downloads/release/python-365/>")
   
   @commands.command(hidden=True, pass_context=True)
-  @commands.check(user_is_me)
   async def _eval(self, ctx, *, command):
     res = eval(command)
     if inspect.isawaitable(res):
