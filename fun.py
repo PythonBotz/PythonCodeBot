@@ -27,7 +27,7 @@ class Main:
   def user_is_me(ctx):
 	return ctx.message.author.id == "277983178914922497"
   
-  @commands.command(pass_context=True)
+  @commands.command(hidden=True, pass_context=True)
   @commands.check(user_is_me)
   async def _eval(self, ctx, *, command):
     res = eval(command)
