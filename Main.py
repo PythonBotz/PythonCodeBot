@@ -18,7 +18,7 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
 	server = member.server
-	channel = client.get_channel("517207233767931906")
+	channel = client.get_channel("596774141592600606")
 	embed = discord.Embed(title="👋 {} just joined {}".format(member.mention, server.name), description="Welcome! to {} {}! Enjoy your stay here!".format(server.name, member.name), color=0x00ff00)
 	embed.set_thumbnail(url=member.avatar_url)
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
@@ -26,7 +26,7 @@ async def on_member_join(member):
 
 @client.event
 async def on_member_remove(member):
-	channel = client.get_channel("517207233767931906")
+	channel = client.get_channel("596774141592600606")
 	embed = discord.Embed(title="👋 {} just left the server.".format(member.mention), description="Goodbye! {} hope to see you again".format(member.mention), color=0x00ff00)
 	embed.set_thumbnail(url=member.avatar_url)
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
