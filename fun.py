@@ -26,7 +26,7 @@ class Main:
     await self.client.say("<https://www.python.org/downloads/release/python-365/>")
     
   def user_is_me(ctx):
-    return ctx.message.author.id == "277983178914922497"
+    return ctx.message.author.id == "601622622957994006"
   
   @commands.command(name="eval", hidden=True, pass_context=True)
   @commands.check(user_is_me)
