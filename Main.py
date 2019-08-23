@@ -19,7 +19,7 @@ async def on_ready():
 async def on_member_join(member):
 	server = member.server
 	channel = client.get_channel("596774141592600606")
-	embed = discord.Embed(title="👋 {} just joined {}".format(member.mention, server.name), description="Welcome! to {} {}! Enjoy your stay here!".format(server.name, member.name), color=0x00ff00)
+	embed = discord.Embed(title="👋 {} just joined {}".format(member.name, server.name), description="Welcome! to {} {}! Enjoy your stay here!".format(server.name, member.name), color=0x00ff00)
 	embed.set_thumbnail(url=member.avatar_url)
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
 	await client.send_message(channel, embed=embed)
