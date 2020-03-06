@@ -56,7 +56,7 @@ async def download():
 async def help(ctx):
 	embed = discord.Embed(description=" ")
 	embed.add_field(name="Help", value="Shows this message")
-	embed.add_field(name"download", value="Shows download link for Python")
+	embed.add_field(name="download", value="Shows download link for Python")
 	embed.add_field(name="Ping", value="Shows simple ping")
 	await client.say(embed=embed)
     
