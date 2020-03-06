@@ -8,9 +8,14 @@ class Main:
   def __init__(self, client):
     self.client = client
   
-  @commands.command()
-  async def ping(self):
-    await self.client.say("Pong!")
+  @commands.command(pass_context=True)
+  async def ping(self, ctx):
+    """pseudo-ping time"""
+    channel = ctx.message.channel
+    t1 = time.perf_counter()
+    await self.client.send_typing(channel)
+    t2 = time.perf_counter()
+    await self.client.say("🏓 {}ms".format(round((t2-t1)*1000)))
   
   @commands.command()
   async def python(self):
@@ -24,6 +29,14 @@ class Main:
   async def download(self):
     """| download link for python 3.6.5"""
     await self.client.say("<https://www.python.org/downloads/release/python-365/>")
+    
+  @commands.command()
+  async def help(self):
+    embed = discord.Embed(description=" ")
+    embed.add_field(name="Help", value="Shows this message")
+    embed.add_field(name"download", value="Shows download link for Python")
+    embed.add_field(name="Ping", value="Shows simple ping")
+    await self.client.say(embed=embed)
     
   def user_is_me(ctx):
     return ctx.message.author.id == "601622622957994006"
