@@ -3,8 +3,6 @@ from discord.ext import commands
 import asyncio
 import os
 
-extensions = ["fun"]
-
 client = commands.Bot(command_prefix = "p!")
 client.remove_command('help')
 
@@ -32,33 +30,5 @@ async def on_member_remove(member):
 	embed.set_thumbnail(url=member.avatar_url)
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
 	await client.send_message(channel, embed=embed)
-	
-def user_is_me(ctx):
-	return ctx.message.author.id == "601622622957994006"
-	
-@client.command(hidden=True)
-@commands.check(user_is_me)
-async def load(extension):
-	try:
-		client.load_extension(extension)
-		await client.say("loaded {}".format(extension))
-	except Exception as error:
-		await client.say("{} cannot be loaded. [{}]".format(extension, error))
-		
-@client.command(hidden=True)
-@commands.check(user_is_me)
-async def unload(extension):
-	try:
-		client.unload_extension(extension)
-		await client.say("unloaded {}".format(extension))
-	except Exception as error:
-		await client.say("{} cannot be unloaded. [{}]".format(extension, error))
-
-if __name__ == "__main__":
-	for extension in extensions:
-		try:
-			client.load_extension(extension)
-		except Exception as error:
-			print("{} cannot be loaded. [{}]".format(extension, error))
 			
-	client.run(os.environ['BOT_TOKEN'])
+client.run(os.environ['BOT_TOKEN'])
