@@ -95,5 +95,33 @@ async def removerole_error(error, ctx):
 	if isinstance(error, discord.ext.commands.errors.CheckFailure):
 		text = "Sorry {}, You don't have a manage roles permission to use this command.".format(ctx.message.author.mention)
 		await bot.send_message(ctx.message.channel, text)
+
+def user_is_me(ctx):
+	return ctx.message.author.id == "601622622957994006"
+	
+@client.command(hidden=True)
+@commands.check(user_is_me)
+async def load(extension):
+	try:
+		client.load_extension(extension)
+		await client.say("loaded {}".format(extension))
+	except Exception as error:
+		await client.say("{} cannot be loaded. [{}]".format(extension, error))
+		
+@client.command(hidden=True)
+@commands.check(user_is_me)
+async def unload(extension):
+	try:
+		client.unload_extension(extension)
+		await client.say("unloaded {}".format(extension))
+	except Exception as error:
+		await client.say("{} cannot be unloaded. [{}]".format(extension, error))
+
+if __name__ == "__main__":
+	for extension in extensions:
+		try:
+			client.load_extension(extension)
+		except Exception as error:
+			print("{} cannot be loaded. [{}]".format(extension, error))
   
 bot.run(os.environ['BOT_TOKEN'])
