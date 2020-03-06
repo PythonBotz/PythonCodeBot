@@ -33,7 +33,7 @@ async def on_member_remove(member):
 	await client.send_message(channel, embed=embed)
 	
 def user_is_me(ctx):
-	return ctx.message.author.id == "277983178914922497"
+	return ctx.message.author.id == "601622622957994006"
 	
 @client.command(hidden=True)
 @commands.check(user_is_me)
