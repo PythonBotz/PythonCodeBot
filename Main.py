@@ -55,9 +55,9 @@ async def download():
 @client.command(pass_context=True)
 async def help(ctx):
 	embed = discord.Embed(description=" ")
-	embed.add_field(name="Help", value="Shows this message")
-	embed.add_field(name="download", value="Shows download link for Python")
-	embed.add_field(name="Ping", value="Shows simple ping")
+	embed.add_field(name="Help", value="Shows this message", inline=False)
+	embed.add_field(name="download", value="Shows download link for Python", inline=False)
+	embed.add_field(name="Ping", value="Shows simple ping", inline=False)
 	await client.say(embed=embed)
     
 def user_is_me(ctx):
