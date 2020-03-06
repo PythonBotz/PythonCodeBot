@@ -40,13 +40,13 @@ async def ping(ctx):
 	t2 = time.perf_counter()
 	await client.say("🏓 {}ms".format(round((t2-t1)*1000)))
   
-@commands.command()
+@client.command()
 async def python():
 	await client.say("You need python 3.6.5 version")
     
-@commands.command(hidden=True)
+@client.command()
 async def baselink():
-    await client.say("<https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENTID_HERE&scope=bot&permissions=YOUR_VALUE_HERE>")
+	await client.say("<https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENTID_HERE&scope=bot&permissions=YOUR_VALUE_HERE>")
     
 @client.command()
 async def download():
