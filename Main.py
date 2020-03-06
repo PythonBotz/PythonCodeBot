@@ -30,5 +30,47 @@ async def on_member_remove(member):
 	embed.set_thumbnail(url=member.avatar_url)
 	embed.add_field(name="Current Member Count", value=member.server.member_count)
 	await client.send_message(channel, embed=embed)
+
+@client.command(pass_context=True)
+async def ping(ctx):
+	channel = ctx.message.channel
+	t1 = time.perf_counter()
+	await client.send_typing(channel)
+	t2 = time.perf_counter()
+	await client.say("🏓 {}ms".format(round((t2-t1)*1000)))
+  
+@commands.command()
+async def python():
+	await client.say("You need python 3.6.5 version")
+    
+@commands.command(hidden=True)
+async def baselink():
+    await client.say("<https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENTID_HERE&scope=bot&permissions=YOUR_VALUE_HERE>")
+    
+@client.command()
+async def download():
+	"""| download link for python 3.6.5"""
+	await client.say("<https://www.python.org/downloads/release/python-365/>")
+    
+@client.command(pass_context=True)
+async def help(ctx):
+	embed = discord.Embed(description=" ")
+	embed.add_field(name="Help", value="Shows this message")
+	embed.add_field(name"download", value="Shows download link for Python")
+	embed.add_field(name="Ping", value="Shows simple ping")
+	await client.say(embed=embed)
+    
+def user_is_me(ctx):
+	return ctx.message.author.id == "601622622957994006"
+  
+@client.command(name="eval", hidden=True, pass_context=True)
+@commands.check(user_is_me)
+async def _eval(self, ctx, *, command):
+	res = eval(command)
+	if inspect.isawaitable(res):
+		await client.say(await res)
+	else:
+		await client.delete_message(ctx.message)
+		await client.say(res)
 			
 client.run(os.environ['BOT_TOKEN'])
